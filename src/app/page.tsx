@@ -2,7 +2,7 @@ import styles from './page.module.css';
 import {CreateUser} from "@/components/CreateUser";
 import {getUsers} from "@/actions/actionsUsers";
 
-export default async function Home() {
+export default async function Page() {
     const users = await getUsers()
 
     return (
