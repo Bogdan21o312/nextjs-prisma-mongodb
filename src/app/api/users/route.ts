@@ -1,15 +1,12 @@
-import { NextResponse } from 'next/server'
-import prisma from './prismadb'
+import {NextResponse} from 'next/server'
+import prisma from './../prismadb'
 
 export async function GET() {
-    try {
-        const users = await prisma.user.findMany();
-        return NextResponse.json(users);
-    } catch (error) {
-        return NextResponse.json({ error: 'Помилка сервера' }, { status: 500 });
-    }
+    const users = await prisma.user.findMany();
+    return NextResponse.json(users);
 }
-export async function POST (request:Request) {
+
+export async function POST(request: Request) {
 
     const body = await request.json();
 
