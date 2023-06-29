@@ -1,20 +1,13 @@
 import styles from './page.module.css';
 import {CreateUser} from "@/components/CreateUser";
-import {getUsers} from "@/actions/actionsUsers";
+import {UserList} from "@/components/UserList";
 
-export default async function Page() {
-    const users = await getUsers()
+export default function Page() {
 
     return (
         <main className={styles.main}>
             <CreateUser/>
-            {users.reverse().map((user: any) => (
-                <div key={user.id}>
-                    <div>{user.email}</div>
-                    <div>{user.name}</div>
-                    <br/>
-                </div>
-            ))}
+            <UserList/>
         </main>
     );
 }

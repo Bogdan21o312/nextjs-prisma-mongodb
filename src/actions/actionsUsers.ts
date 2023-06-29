@@ -9,3 +9,9 @@ export async function createUser(email: string, name: string) {
     const response = await axios.post(API_URL, { email, name });
     return response.data;
 }
+
+export async function deleteUser(userId: string) {
+    const url = `${API_URL}/${userId}`;
+    const response = await axios.delete(url);
+    return response.data;
+}
