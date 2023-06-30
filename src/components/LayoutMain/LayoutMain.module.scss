@@ -1,0 +1,58 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  > main {
+    flex: 1 1 auto;
+  }
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.header {
+  position: fixed;
+  transition: all 0.3s ease 0s;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  color: #141414;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.logo {
+
+}
+
+.menu {
+}
+
+.list {
+  display: flex;
+  gap: 60px;
+}
+
+.item {
+
+}
+
+.link {
+
+}
+
+.main {
+  margin-top: 60px;
+}
+
+.footer {
+  background-color: #fff;
+  color: #141414;
+  padding: 10px 20px;
+}
