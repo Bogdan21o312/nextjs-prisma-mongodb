@@ -1,5 +1,5 @@
-import {NextResponse} from 'next/server'
-import prisma from './../prismadb'
+import { NextResponse } from 'next/server';
+import prisma from './../prismadb';
 
 export async function GET() {
     const products = await prisma.product.findMany();
@@ -15,9 +15,19 @@ export async function POST(request: Request) {
         data: {
             title,
             description,
-            categories,
         },
     });
+
+    if (categories && categories.length > 0) {
+        for (const categoryId of categories) {
+            await prisma.categoryToProduct.create({
+                data: {
+                    category: { connect: { id: categoryId } },
+                    product: { connect: { id: product.id } },
+                },
+            });
+        }
+    }
 
     return NextResponse.json(product);
 }
